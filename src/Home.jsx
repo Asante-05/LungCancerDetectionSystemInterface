@@ -71,30 +71,30 @@ console.log(data)
   return (
     <>
       <Layout>
-        <p className="text-gray-700 text-3xl mb-10 font-bold">Dashboard</p>
+        <p className="text-grey text-3xl mb-10 font-bold">Dashboard</p>
         <div className="grid lg:grid-cols-3 gap-5 mb-16">
-          <div onClick={handleGeneralClick} className="rounded bg-white h-40 shadow-sm flex flex-col justify-center items-left pl-10 hover:scale-95 transition-transform">
+          <div onClick={handleGeneralClick} className="rounded shadow-lg bg-white h-40  flex flex-col justify-center items-left pl-10 hover:scale-95 transition-transform">
             <section>
-              <h1 className="text-2xl font-bold text-gray-500 ">Number Of Scans:</h1>
+              <h1 className="text-2xl font-bold text-grey ">Number Of Scans:</h1>
             </section>
             <section>
-            <h1 className="text-6xl font-semibold text-orange-400 hover:text-gray-500">{data.length}</h1>
-            </section>
-          </div>
-          <div onClick={handlePositiveClick} className="rounded bg-white h-40 shadow-sm flex flex-col justify-center items-left pl-10 hover:scale-95 transition-transform">
-            <section>
-              <h1 className="text-2xl font-bold text-gray-500">Total Positive Scans:</h1>
-            </section>
-            <section>
-            <h1 className="text-6xl font-semibold text-orange-400 hover:text-gray-500">{positiveCount}</h1>
+            <h1 className="text-6xl font-bold text-b400 hover:text-grey">{data.length}</h1>
             </section>
           </div>
-          <div onClick={handleNegativeClick} className="rounded bg-white h-40 shadow-sm flex flex-col justify-center items-left pl-10 hover:scale-95 transition-transfor ">
+          <div onClick={handlePositiveClick} className="rounded shadow-lg bg-white h-40  flex flex-col justify-center items-left pl-10 hover:scale-95 transition-transform">
             <section>
-              <h1 className="text-2xl font-bold text-gray-500">Total Negative Scans:</h1>
+              <h1 className="text-2xl font-bold text-grey">Total Positive Scans:</h1>
             </section>
             <section>
-            <h1 className="text-6xl font-semibold text-orange-400 y-500 hover:text-gray-500">{negativeCount}</h1>
+            <h1 className="text-6xl font-bold text-b400 hover:text-grey">{positiveCount}</h1>
+            </section>
+          </div>
+          <div onClick={handleNegativeClick} className="rounded shadow-lg bg-white h-40  flex flex-col justify-center items-left pl-10 hover:scale-95 transition-transfor ">
+            <section>
+              <h1 className="text-2xl font-bold text-grey">Total Negative Scans:</h1>
+            </section>
+            <section>
+            <h1 className="text-6xl font-bold text-b400 y-500 hover:text-grey">{negativeCount}</h1>
             </section>
           </div>
         </div>
@@ -102,8 +102,8 @@ console.log(data)
 
 
         {showAll && 
-        <><p className="text-gray-700 text-3xl mb-5 font-bold">Recent Scans</p>
-        <div className=" py-5 px-10 rounded-xl items-center col-1 bg-white h-auto shadow-sm gap-5  text-gray-500">
+        <><p className="text-grey text-3xl mb-5 font-bold">Recent Scans</p>
+        <div className=" py-5 px-10 rounded-xl items-center col-1 bg-white h-auto shadow-lg gap-5  text-grey">
             {data.map((tuple, key) => (
               <div key={key} className="flex items-center ">
                 <div className="flex-1">
@@ -122,8 +122,8 @@ console.log(data)
             ))}
           </div></>}
         {showPositives && 
-        <><p className="text-gray-700 text-3xl mb-5 font-bold">Positive Scans</p>
-        <div className=" py-5 px-10 rounded-xl items-center col-1 bg-white h-auto shadow-sm gap-5  text-gray-500">
+        <><p className="text-grey text-3xl mb-5 font-bold">Positive Scans</p>
+        <div className=" py-5 px-10 rounded-xl items-center col-1 bg-white h-auto shadow-lg gap-5  text-grey">
             {PositiveList.map((tuple, key) => (
               <div key={key} className="flex items-center ">
                 <div className="flex-1">
@@ -142,8 +142,8 @@ console.log(data)
             ))}
           </div></>}
         {showNegatives && 
-        <><p className="text-gray-700 text-3xl mb-5 font-bold">Negative Scans</p>
-        <div className=" py-5 px-10 rounded-xl items-center col-1 bg-white h-auto shadow-sm gap-5  text-gray-500">
+        <><p className="text-grey text-3xl mb-5 font-bold">Negative Scans</p>
+        <div className=" py-5 px-10 rounded-xl items-center col-1 bg-white h-auto shadow-lg gap-5  text-grey">
             {NegativesList.map((tuple, key) => (
               <div key={key} className="flex items-center ">
                 <div className="flex-1">

@@ -40,8 +40,8 @@ export function Login() {
             alt=""
           ></img>
         </div>
-        <div className="bg-white-500 flex flex-col justify-center">
-          <form className="max-w-[400px] w-full mx-auto bg-orange-500 bg-opacity-50 p-8 px-8 rounded-lg ">
+        <div className="bg-white flex flex-col justify-center">
+          <form className="max-w-[400px] w-full mx-auto bg-b300 bg-opacity-50 p-8 px-8 rounded-lg ">
             <h2 className="text-4xl text-white font-bold text-center">
               SIGN IN
             </h2>
@@ -74,7 +74,7 @@ export function Login() {
             </div>
 
             <button
-              className="w-full my-5 py-2 bg-orange-500 bg-opacity-50 shadow-lg shadow-teal-500/50 hover:shadow-teal-500/30 font-semibold rounded-lg text-white"
+              className="w-full my-5 py-2 bg-b950 bg-opacity-50 shadow-lg shadow-teal-500/50 hover:shadow-teal-500/30 font-semibold rounded-lg text-white"
               onClick={handleLoginClick}
             >
               Sign In
