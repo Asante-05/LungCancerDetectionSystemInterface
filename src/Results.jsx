@@ -11,6 +11,7 @@ import ReactToPrint from "react-to-print";
 const Results = React.forwardRef(({ result, setReultReady }, ref) =>  {
     const [docRemarks, setDocRemarks] = useState("");
 
+    console.log(result)
     const handleSave = () => {
         setReultReady((prev) => !prev);
         addResultToDatabase(result, docRemarks);
@@ -50,20 +51,22 @@ const Results = React.forwardRef(({ result, setReultReady }, ref) =>  {
                     <p>{result.patient_id}</p>
                     <p>{result.patient_name}</p>
                     <p>{result.gender}</p>
-                    <p>{result.status}</p>
-                    <p>{result.patient_class}</p>
+                    <p>{result.prediction === "normal" ? "Negative" : "Positive"}</p>
+                    <p>{result.prediction}</p>
                   </section>
                 </div>
+                  
                 <h3 className="mt-5">Remarks</h3>
 
                 <textarea
+                className="w-full h-[35%]"
                 value={docRemarks}
                 onChange={(event) => setDocRemarks(event.target.value)}
                 name="remarks"
               ></textarea>
               </div>
   
-              <div className="flex justify-between">
+              <div className="flex justify-between py-">
                 <div
                   className={`justify-center py-3 mx-5 rounded text-center w-full cursor-pointer mb-3 flex items-center transition-colors bg-orange-100 text-orange-500 `}
                 >
@@ -89,12 +92,15 @@ const ResultPrintComponent = ({ result, setReultReady }) => {
   
     return (
       <div>
+        <div className="flex justify-left items-right">
+
+        <PrintButton  componentRef={componentRef} />
+        </div>
         <Results
           ref={componentRef}
           result={result}
           setReultReady={setReultReady}
         />
-        <PrintButton componentRef={componentRef} />
       </div>
     );
   };

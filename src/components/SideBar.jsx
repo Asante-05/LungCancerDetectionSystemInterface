@@ -21,7 +21,7 @@ const SideBar = forwardRef(({ showNav }, ref) => {
         <picture>
           <img
             className="w-32 h-auto"
-            src="/lungnetallblack.png"
+            src="/lungnetcenterblack.png"
             alt="company logo"
           />
         </picture>
@@ -40,7 +40,7 @@ const SideBar = forwardRef(({ showNav }, ref) => {
               <HomeIcon className="h-5 w-5" />
             </div>
             <div>
-              <p>Home</p>
+              <p>Dashboard</p>
             </div>
           </div>
         </Link>
