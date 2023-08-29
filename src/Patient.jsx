@@ -10,14 +10,13 @@ import { Menu, Transition, Popover } from "@headlessui/react";
 function Patient() {
   const heading = ["Scan ID", "Name", "Date", "Results", "View", "Delete"];
 
-  
   const [viewdata, setViewData] = useState();
   const [delData, setDelData] = useState();
-  
+
   const [ViewDelConfirmation, setViewDelConfirmation] = useState(false);
-  
+
   const [viewParticular, setViewParticular] = useState(false);
-  
+
   const [data, setData] = useState([]);
   const [shouldFetch, setShouldFetch] = useState(true);
   useEffect(() => {
@@ -104,126 +103,125 @@ function Patient() {
   const [searchString, setSearchString] = useState("");
 
   // const filteredItems = data.filter(item => item.patient_name.toLowerCase().includes(searchString.toLowerCase()) || item.patient_id.toString().includes(searchString))
-  const filteredItems = data.filter(item => item.patient_name.toLowerCase().includes(searchString.toLowerCase()) )
-  
+  const filteredItems = data.filter((item) =>
+    item.patient_name.toLowerCase().includes(searchString.toLowerCase())
+  );
 
   return (
     <Layout>
       {!viewParticular && !resultReady && (
         <>
-        <div className="flex gap-2 justify-center items-center ">
-
-        
-          <div className="flex w-[85%] justify-center items-center  rounded-full bg-white  py-2 mb-5">
-            <div className="w-[100%] flex justify-between ">
-              <section className="w-[100%]  flex items-center justify-center">
-                <input
-                  value={searchString}
-                  hidden={false}
-                  onChange={(e) => setSearchString(e.target.value)}
-                  className=" rounded-full w-[90%] h-[90%]  bg-white-700 px-5  focus:border-blue-500 focus:bg-gray-200 focus:outline-none"
-                  type="text"
-                  placeholder="search for patients here with Id of the patient"
-                />
-              </section>
-              <section className="">
-                <button className=" mr-3  cursor-pointer  bg-orange-100 text-gray-700 flex rounded-full text-center items-center transition-colors hover:bg-orange-100 hover:text-orange-500 py-3 lg:px-16 md:px-8 sm:px-8">
-                  Search
-                </button>
-              </section>
+          <div className="flex gap-2 justify-center items-center ">
+            <div className="flex w-[85%] justify-center items-center  rounded-full bg-white  py-2 mb-5">
+              <div className="w-[100%] flex justify-between ">
+                <section className="w-[100%]  flex items-center justify-center">
+                  <input
+                    value={searchString}
+                    hidden={false}
+                    onChange={(e) => setSearchString(e.target.value)}
+                    className=" rounded-full w-[90%] h-[90%]  bg-white-700 px-5 shadow  focus:border-blue-500 focus:bg-lightGrey focus:outline-none"
+                    type="text"
+                    placeholder="search for patients here with Id of the patient"
+                  />
+                </section>
+                <section className="">
+                  <button className=" mr-3  cursor-pointern shadow-lg  bg-b100 text-gray-700 flex rounded-full text-center items-center transition-colors hover:bg-b200 hover:text-blue py-3 lg:px-16 md:px-8 sm:px-8">
+                    Search
+                  </button>
+                </section>
+              </div>
             </div>
-          </div>
 
-          <div className="">
-            <Popover className="relative">
-              <Popover.Button className=" mr-5 md:mr-8 cursor-pointer  bg-orange-100 text-gray-700 flex gap-2   p-6 py-3  rounded text-center   items-center transition-colors   hover:bg-orange-100 hover:text-orange-500">
-                New Scan
-              </Popover.Button>
-              <Transition
-                as={Fragment}
-                enter="transition ease-out duration-100"
-                enterFrom="transform scale-95"
-                enterTo="transform scale-100"
-                leave="transition ease-in duration=75"
-                leaveFrom="transform scale-100"
-                leaveTo="transform scale-95"
-              >
-                <Popover.Panel className="absolute flex align-center   justify-between h-60  sm:right-4 z-50 mt-2 bg-white shadow-lg rounded max-w-xs sm:max-w-sm w-screen">
-                  <div className="relative p-3 w-96 h-auto">
-                    <div className="flex justify-between items-center w-full">
-                      <p className="text-gray-700 font-medium">
-                        Perform a new scan
-                      </p>
-                      <a className="text-sm text-orange-500" href="#">
-                        for existing patients
-                      </a>
-                    </div>
-
-                    <div className="mt-4 grid gap-4 grid-cols-1 overflow-hidden">
-                      <div className="flex justify-between">
-                        <h3>Enter Patient ID</h3>
-                        <input
-                          value={patient_id}
-                          onChange={(event) =>
-                            setPatient_id(event.target.value)
-                          }
-                          id="id"
-                          type="text"
-                          placeholder="FA-2128-22"
-                          className="border focus:border-orange-500"
-                        ></input>
+            <div className="">
+              <Popover className="relative">
+                <Popover.Button className=" mr-5 md:mr-8 cursor-pointer shadow-lg  bg-b100 text-gray-700 flex gap-2   p-6 py-3  rounded text-center   items-center transition-colors   hover:bg-b200 hover:text-blue">
+                  New Scan
+                </Popover.Button>
+                <Transition
+                  as={Fragment}
+                  enter="transition ease-out duration-100"
+                  enterFrom="transform scale-95"
+                  enterTo="transform scale-100"
+                  leave="transition ease-in duration=75"
+                  leaveFrom="transform scale-100"
+                  leaveTo="transform scale-95"
+                >
+                  <Popover.Panel className="absolute flex align-center justify-between h-60  sm:right-4 z-50 mt-2 bg-white shadow-lg rounded max-w-xs sm:max-w-sm w-screen">
+                    <div className="relative p-3 w-96 h-auto">
+                      <div className="flex justify-between items-center w-full">
+                        <p className="text-grey font-medium">
+                          Perform a new scan
+                        </p>
+                        <a className="text-sm text-b500" href="#">
+                          for existing patients
+                        </a>
                       </div>
 
-                      <div className="flex  justify-center item-center border border-dashed border-black p-4">
-                        <h1>Drop File here</h1>
-                        <h1> or </h1>
-                        <div>
+                      <div className="mt-4 grid gap-4 grid-cols-1 overflow-hidden">
+                        <div className="flex justify-between">
+                          <h3>Enter Patient ID</h3>
                           <input
-                            type="file"
-                            ref={fileInputRef}
-                            style={{ display: "none" }}
-                            onChange={handleFileChange}
-                          />
-                          <button
-                            className="uploadBtn"
-                            onClick={openFileDialog}
-                          >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              strokeWidth={1.5}
-                              stroke="currentColor"
-                              className="w-6 h-6"
+                            value={patient_id}
+                            onChange={(event) =>
+                              setPatient_id(event.target.value)
+                            }
+                            id="id"
+                            type="text"
+                            placeholder="FA-2128-22"
+                            className="border focus:border-orange-500"
+                          ></input>
+                        </div>
+
+                        <div className="flex  justify-center item-center border border-dashed border-black p-4">
+                          <h1>Drop File here</h1>
+                          <h1> or </h1>
+                          <div>
+                            <input
+                              type="file"
+                              ref={fileInputRef}
+                              style={{ display: "none" }}
+                              onChange={handleFileChange}
+                            />
+                            <button
+                              className=""
+                              onClick={openFileDialog}
                             >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="M12 9.75v6.75m0 0l-3-3m3 3l3-3m-8.25 6a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z"
-                              />
-                            </svg>
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                strokeWidth={1.5}
+                                stroke="currentColor"
+                                className="w-6 h-6"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  d="M12 9.75v6.75m0 0l-3-3m3 3l3-3m-8.25 6a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z"
+                                />
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                        <div className="flex justify-between ">
+                          <button
+                            className={` p-6 py-3 mx-5 rounded shadow-lg text-center cursor-pointer mb-3 w-[40%] flex items-center justify-center transition-colors text-gray-400 hover:bg-b200 hover:text-500`}
+                          >
+                            Cancel
+                          </button>
+                          <button
+                            className={` p-6 py-3 mx-5 rounded shadow-lg text-center cursor-pointer mb-3 w-[40%] flex items-center justify-center transition-colors text-gray-400 hover:bg-b200 hover:text-500`}
+                            onClick={() => handleFileUpload()}
+                          >
+                            Start
                           </button>
                         </div>
                       </div>
-                      <div className="flex justify-between ">
-                        <button
-                          className={` p-6 py-3 mx-5 rounded text-center cursor-pointer mb-3 w-[40%] flex items-center justify-center transition-colors text-gray-400 hover:bg-orange-100 hover:text-orange-500`}
-                        >
-                          Cancel
-                        </button>
-                        <button
-                          className={` p-6 py-3 mx-5 rounded text-center cursor-pointer mb-3 w-[40%] flex items-center justify-center transition-colors text-gray-400 hover:bg-orange-100 hover:text-orange-500`}
-                          onClick={() => handleFileUpload()}
-                        >
-                          Start
-                        </button>
-                      </div>
                     </div>
-                  </div>
-                </Popover.Panel>
-              </Transition>
-            </Popover>
-          </div>
+                  </Popover.Panel>
+                </Transition>
+              </Popover>
+            </div>
           </div>
 
           <div className=" mb-14 ">

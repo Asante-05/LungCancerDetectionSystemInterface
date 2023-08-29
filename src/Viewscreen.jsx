@@ -1,8 +1,7 @@
 import React, { useRef } from "react";
 import ReactToPrint from "react-to-print";
 
-
-const Viewscreen = React.forwardRef(({ response, setView }, ref) =>  {
+const Viewscreen = React.forwardRef(({ response, setView }, ref) => {
   const encodePrefix = "data:image/jpeg;base64,";
   let encodedImage = "";
 
@@ -20,7 +19,11 @@ const Viewscreen = React.forwardRef(({ response, setView }, ref) =>  {
 
         <div className="justify-between grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 gap-10">
           <section>
-            <img className="lg:max-w-[100%] h-[450px] md:max-w-[100%] h-md sm:max-w-[100%] max-h-[100%]" src={encodedImage} alt=""></img>
+            <img
+              className="lg:max-w-[100%] h-[450px] md:max-w-[100%] h-md sm:max-w-[100%] max-h-[100%]"
+              src={encodedImage}
+              alt=""
+            ></img>
           </section>
 
           <section className="flex flex-col justify-between">
@@ -47,18 +50,18 @@ const Viewscreen = React.forwardRef(({ response, setView }, ref) =>  {
 
             <div className="flex justify-between">
               <div
-                className={`justify-center py-3 mx-5 rounded text-center w-full cursor-pointer mb-3 flex items-center transition-colors bg-orange-100 text-orange-500 `}
+                className={`justify-center py-3 mx-5 rounded text-center w-full cursor-pointer mb-3 flex items-center transition-colors bg-b200 text-orange-500 `}
               >
                 <button id="1" onClick={setView}>
                   Return
                 </button>
               </div>
               <div
-                className={`justify-center py-3 mx-5 rounded text-center w-full cursor-pointer mb-3 flex items-center transition-colors bg-orange-100 text-orange-500 `}
+                className={`justify-center py-3 mx-5 rounded text-center w-full cursor-pointer mb-3 flex items-center transition-colors bg-b200 text-orange-500 `}
               >
-                {/* <button id="1" >
+                <button id="1" >
                   Print
-                </button> */}
+                </button>
               </div>
             </div>
           </section>
@@ -66,18 +69,14 @@ const Viewscreen = React.forwardRef(({ response, setView }, ref) =>  {
       </div>
     </>
   );
-})
+});
 
 const ResultViewPrint = ({ response, setView }) => {
   const componentRef = useRef(null);
 
   return (
     <div>
-      <Viewscreen
-        ref={componentRef}
-        response={response}
-        setView={setView}
-      />
+      <Viewscreen ref={componentRef} response={response} setView={setView} />
       <PrintButton componentRef={componentRef} />
     </div>
   );
