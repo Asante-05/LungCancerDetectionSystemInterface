@@ -63,7 +63,7 @@ const SideBar = forwardRef(({ showNav }, ref) => {
               </div>
             </Link>
           </div>
-        </div>v
+        </div>
         <div className="mb-10">
           
           <div>
