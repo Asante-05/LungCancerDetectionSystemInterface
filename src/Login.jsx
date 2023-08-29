@@ -74,7 +74,7 @@ export function Login() {
             </div>
 
             <button
-              className="w-full my-5 py-2 bg-b950 bg-opacity-50 shadow-lg shadow-teal-500/50 hover:shadow-teal-500/30 font-semibold rounded-lg text-white"
+              className="w-full my-5 py-2 bg-b600 bg-opacity-50 shadow-lg shadow-teal-500/50 hover:shadow-teal-500/30 font-semibold rounded-lg text-white"
               onClick={handleLoginClick}
             >
               Sign In

@@ -74,7 +74,6 @@ function Patient() {
   const fileInputRef = useRef(null);
   const [patient_id, setPatient_id] = useState();
   const [resultReady, setResultReady] = useState(false);
-
   const [r, setR] = useState(null);
 
   const handleFileChange = (event) => {
@@ -86,13 +85,19 @@ function Patient() {
 
   const handleFileUpload = async () => {
     console.log("click");
+    if(selectedFile === null || selectedFile === undefined ){
+      alert("No Scan file has been selected")
+      return;
+    }
     try {
       const response = await uploadFile(patient_id, selectedFile);
       if (response.non_field_errors) {
         alert(response.non_field_errors[0]);
       } else {
         setR(response);
+        window.location.refresh()
         setResultReady(true);
+        setViewDelConfirmation(false)
       }
     } catch (error) {
       alert("Error uploading file (Front):", error);
@@ -106,6 +111,7 @@ function Patient() {
   const filteredItems = data.filter((item) =>
     item.patient_name.toLowerCase().includes(searchString.toLowerCase())
   );
+   
 
   return (
     <Layout>
